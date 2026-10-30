@@ -1,5 +1,5 @@
+# enemy_color: "red"
 enemy_color: "red"
-#enemy_color: "blue"
 
 
 #####-----神经网络参数-----#####
@@ -95,8 +95,8 @@ yaw_offset: 0.75 # degree -2.5
 pitch_offset: -1.05 # degree 
 comming_angle: 60 # degree
 leaving_angle: 20 # degree
-outpost_aim_coming_angle: 70 # degree, front-facing outpost aim candidate window
-outpost_aim_leaving_angle: 45 # degree, keep target plate stable after it passes center
+outpost_aim_coming_angle: 30 # degree, front-facing outpost aim candidate window
+outpost_aim_leaving_angle: 50 # degree, keep target plate stable after it passes center
 resistance_k: 0.023 # 空气阻力系数
 decision_speed: 10 # rad/s
 high_speed_delay_time: 0.063 # 
@@ -112,7 +112,7 @@ high_spin_force_fire_enabled: true
 high_spin_force_fire_enter_speed: 11.0 # rad/s
 high_spin_force_fire_exit_speed: 9.0 # rad/s
 outpost_fire_require_locked: true
-outpost_fire_coming_angle: 30.0 # degree, coming-side fire window before center
+outpost_fire_coming_angle: 20.0 # degree, coming-side fire window before center
 outpost_fire_leaving_angle: 45.0 # degree, leaving-side fire window after center
 
 #####-----decider参数-----#####

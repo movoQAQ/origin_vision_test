@@ -200,8 +200,13 @@ int main(int argc, char * argv[])
   fmt::print("标定计算完成！\n");
 
   Eigen::Matrix3d R_camera2gimbal_eigen;
+  Eigen::Matrix3d R_gimbal_fix{{-1, 0, 0}, {0, -1, 0}, {0, 0, 1}};
+  R_camera2gimbal_eigen = R_camera2gimbal_eigen * R_gimbal_fix;
+  
   cv::cv2eigen(R_camera2gimbal, R_camera2gimbal_eigen);
+  
   Eigen::Matrix3d R_gimbal2ideal{{0, -1, 0}, {0, 0, -1}, {1, 0, 0}};
+  
   Eigen::Matrix3d R_camera2ideal = R_gimbal2ideal * R_camera2gimbal_eigen;
   Eigen::Vector3d ypr = tools::eulers(R_camera2ideal, 1, 0, 2) * 57.3;
 

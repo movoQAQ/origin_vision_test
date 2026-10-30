@@ -1,5 +1,5 @@
 enemy_color: "red"
-# enemy_color: "blue"
+#enemy_color: "blue"
 
 
 #####-----神经网络参数-----#####
@@ -10,7 +10,7 @@ yolov8_model_path: assets/yolov8.xml
 yolov5_model_path: assets/yolov5_0526.xml
 device: GPU
 auto_aim_device: GPU
-omni_device: NPU
+omni_device: GPU
 min_confidence: 0.8 
 use_traditional: false
 
@@ -47,7 +47,7 @@ omni_fov_v_deg: 67.0
 
 #####-----工业相机参数-----#####
 camera_name: "hikrobot"
-exposure_ms: 3
+exposure_ms: 2
 gain: 14
 vid_pid: "2bdf:0001"
 
@@ -92,20 +92,20 @@ outpost_layer_correction_z_gate: 0.06
 
 #####-----aimer参数-----#####
 yaw_offset: 0.75 # degree -2.5
-pitch_offset: -0.75 # degree 
+pitch_offset: -1.05 # degree 
 comming_angle: 60 # degree
 leaving_angle: 20 # degree
 outpost_aim_coming_angle: 70 # degree, front-facing outpost aim candidate window
 outpost_aim_leaving_angle: 45 # degree, keep target plate stable after it passes center
 resistance_k: 0.023 # 空气阻力系数
 decision_speed: 10 # rad/s
-high_speed_delay_time: 0.063 # s
-low_speed_delay_time: 0.05 # s
+high_speed_delay_time: 0.063 # 
+low_speed_delay_time: 0.1 # s
 
 
 #####-----shooter参数-----#####
-first_tolerance: 5 # 近距离射击容差，degree
-second_tolerance: 5 # 远距离射击容差，degree
+first_tolerance: 4 # 近距离射击容差，degree
+second_tolerance: 4 # 远距离射击容差，degree
 judge_distance: 3 #距离判断阈值
 auto_fire: true # 是否由自瞄控制射击
 high_spin_force_fire_enabled: true
@@ -127,7 +127,7 @@ omni_detection_stale_ms: 120.0 # 多线程omni检测结果的时效窗口，避�
 omni_hold_release_tolerance_deg: 3.0 # omni重定向命令只有在big_yaw误差进入该阈值后才释放本地hold
 omni_command_timeout_s: 0.5 # omni目标命令若在该时间内未达到目标角度，则停止发送并保持lost
 main_lost_cmd_hold_s: 0.25 # 主相机tracker进入lost后，继续发送上一条主相机控制命令的持续时间
-buff_lost_cmd_hold_s: 0.30 # 小符检测或规划短暂失效时，继续占有云台且停火的持续时间
+buff_lost_cmd_hold_s: 0.10 # 小符检测或规划短暂失效时，继续占有云台且停火的持续时间
 small_assoc_max_jump_px: 140.0 # 小符检测中心相对上一帧的最大允许跳变，px
 small_assoc_reacquire_frames: 2 # 连续大跳变后立即重新锁定，避免长期沿用巡航前的旧目标
 
@@ -159,6 +159,6 @@ IouThreshold: 0.2
 model: "assets/buff_repvgg.xml"
 
 #####-----buff_aimer参数-----#####
-fire_gap_time: 0.3 # s
-predict_time: 0.0 # s
-buff_aim_radius_m: 0.70 # 小符最终瞄点半径；增大向外打，减小向内打
+fire_gap_time: 0.15 # s
+predict_time: 0.03 # s
+buff_aim_radius_m: 0.80 # 小符最终瞄点半径；增大向外打，减小向内打

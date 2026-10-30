@@ -669,7 +669,7 @@ int main(int argc, char * argv[])
 
     frame_count++;
     Eigen::Quaterniond q = gimbal->imu_at_image(main_timestamp);
-    // recorder.record(main_img,q, main_timestamp);
+     recorder.record(main_img,q, main_timestamp);
     solver.set_R_gimbal2world(q);
     const auto gimbal_state = gimbal->state();
     const bool small_buff_mode = buff_request_subscriber.requested();
@@ -1031,7 +1031,7 @@ int main(int argc, char * argv[])
 
     nlohmann::json data;
     data["mode"] = small_buff_mode ? 2 : (omni_mode ? 1 : 0);
-    data["gimbal_mode"] = io::MODES[static_cast<int>(gimbal_mode)];
+    data["gimbal_mode"] = io::MODES[static_cast<int>(gimbal->mode())];
     data["armor_num"] = armors.size();
     data["tracker_state"] = tracker_state;
     data["armor_acquiring"] = (!small_buff_mode && tracker_state == "detecting") ? 1 : 0;
